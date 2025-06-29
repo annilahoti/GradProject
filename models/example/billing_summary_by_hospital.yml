@@ -1,0 +1,18 @@
+models:
+  - name: billing_summary_by_hospital
+    description: "Summarizes billing amounts by hospital."
+    columns:
+      - name: Hospital
+        tests:
+          - not_null
+      - name: num_patients
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+      - name: total_billing
+        tests:
+          - not_null
+      - name: avg_billing
+        tests:
+          - not_null

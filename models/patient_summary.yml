@@ -16,7 +16,7 @@ models:
         description: "The average age of patients in each group."
         tests:
           - not_null
-          - accepted_range:
+          - dbt_utils.accepted_range:
               min_value: 0
               max_value: 120
 
