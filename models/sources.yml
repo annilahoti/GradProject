@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: patient_summary
+    description: "Summary table of patients, showing average age and count by gender and medical condition."
+    columns:
+      - name: patient_gender
+        description: "The gender of the patients."
+        tests:
+          - not_null
+      - name: Medical_Condition
+        description: "The main medical condition of the patient."
+        tests:
+          - not_null
+      - name: avg_Age
+        description: "The average age of patients in each group."
+        tests:
+          - not_null
+          - accepted_range:
+              min_value: 0
+              max_value: 120
+
+sources:
+  - name: default
+    database: workspace
+    schema: default
+    tables:
+      - name: healthcare_patients
